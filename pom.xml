@@ -4,31 +4,76 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- Información del proyecto principal -->
     <groupId>dacd.cabeza</groupId>
     <artifactId>Trabajo_Final</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <!-- Nombre y descripción del proyecto -->
+    <name>Proyecto Principal DACD</name>
+    <description>Proyecto principal que incluye el módulo xotelo-feeder</description>
+
+    <!-- Configuración de módulos -->
     <modules>
         <module>xotelo-feeder</module>
+        <!-- Aquí puedes añadir más módulos si los tienes -->
     </modules>
 
+    <!-- Propiedades globales -->
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
+    <!-- Dependencias comunes para todos los módulos -->
     <dependencies>
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>1.17.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.10.1</version>
-        </dependency>
+        <!-- Puedes añadir dependencias comunes aquí si es necesario -->
     </dependencies>
+
+    <!-- Gestión de dependencias -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Aquí puedes definir versiones de dependencias para todos los módulos -->
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Configuración de build -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Plugin para compilar código Java -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <source>11</source>
+                        <target>11</target>
+                    </configuration>
+                </plugin>
+
+                <!-- Plugin para ejecutar pruebas -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.0.0-M5</version>
+                </plugin>
+
+                <!-- Plugin para generar reportes -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.9.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- Perfiles de construcción -->
+    <profiles>
+        <!-- Puedes definir perfiles específicos aquí si es necesario -->
+    </profiles>
+
 </project>
